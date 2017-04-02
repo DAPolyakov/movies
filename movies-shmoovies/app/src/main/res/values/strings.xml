@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Movies-Shmoovies</string>
+    <string name="posters_title_movies">Movies</string>
+    <string name="posters_title_tv_shows">Tv shows</string>
+    <string name="posters_title_peoples">Peoples</string>
+
+    <string name="category_title_upcoming">Upcoming</string>
+    <string name="category_title_popular">Popular</string>
+    <string name="category_title_top_10">Top-10</string>
+
+    <string name="url_unknown_people">https://static.wixstatic.com/media/e3268b_df86ae6b06fd48fdbf565a1b03d44131.jpg_256</string>
+
+    <string name="media_overview">Overview</string>
+    <string name="media_crew">Crew</string>
+    <string name="media_cast">Cast</string>
+    <string name="media_facts">Facts</string>
+    <string name="media_genres">Genres</string>
+    <string name="media_original_title">Original Title</string>
+    <string name="media_status">Status</string>
+    <string name="media_original_language">Original Language</string>
+    <string name="media_runtime">Runtime</string>
+    <string name="media_budget">Budget</string>
+    <string name="media_revenue">Revenue</string>
+    <string name="media_homepage">Homepage</string>
+
+</resources>

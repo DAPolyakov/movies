@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/poster_cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#15485c"
+        android:orientation="horizontal"
+        android:paddingEnd="@dimen/posters_content_linear_1_padding_right"
+        android:paddingStart="@dimen/posters_content_linear_1_padding_left"
+        android:paddingTop="@dimen/posters_content_linear_1_padding_top">
+
+        <ImageView
+            android:id="@+id/poster_image"
+            android:layout_width="220dp"
+            android:layout_height="170dp"
+            android:layout_weight="150"
+            android:background="@color/colorAccent"
+            android:scaleType="fitCenter" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="100"
+            android:background="#ffffffff"
+            android:orientation="vertical"
+            android:padding="@dimen/posters_content_linear_2_padding">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/poster_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="7.2"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/posters_content_rating_text_size" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="@dimen/posters_content_rating_star_height"
+                    android:layout_height="@dimen/posters_content_rating_star_height"
+                    android:background="@android:drawable/btn_star_big_on" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/poster_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:paddingTop="@dimen/posters_content_title_padding_top"
+                    android:text="Красавица и чудовище"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/posters_content_title_text_size" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/poster_date"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="600"
+                android:paddingLeft="@dimen/posters_content_date_padding_left"
+                android:text="12-12-2017"
+                android:textColor="#000000"
+                android:textSize="@dimen/posters_content_date_text_size" />
+
+            <TextView
+                android:id="@+id/poster_describe"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="220"
+                android:padding="@dimen/posters_content_describe_padding"
+                android:text="A live-action young woman who helps him break the spellelps him break sselps him break the spell..."
+                android:textColor="#000000"
+                android:textSize="@dimen/posters_content_describe_text_size" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

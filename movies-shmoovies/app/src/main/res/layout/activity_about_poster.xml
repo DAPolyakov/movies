@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:context="com.nikita.movies_shmoovies.InfoPosterActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#121212">
+
+        <ImageView
+            android:id="@+id/background_top"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:background="#150909" />
+
+        <TextView
+            android:id="@+id/content_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/content_poster_main"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="28dp"
+            android:layout_toEndOf="@+id/content_poster_second"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/content_poster_main"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
+            app:srcCompat="@color/colorAccent" />
+
+        <ImageView
+            android:id="@+id/content_poster_second"
+            android:layout_width="140dp"
+            android:layout_height="185dp"
+            android:layout_alignBottom="@+id/content_title"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="20dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/content_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_title"
+            android:layout_below="@+id/content_title"
+            android:layout_marginEnd="8dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/content_label_overview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_poster_second"
+            android:layout_below="@id/background_top"
+            android:layout_marginStart="@dimen/info_labels_padding_start"
+            android:paddingTop="20dp"
+            android:text="@string/media_overview"
+            android:textColor="#FFFFFF"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/content_overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_poster_second"
+            android:layout_below="@id/content_label_overview"
+            android:layout_marginEnd="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:textColor="#ededed"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/content_label_crew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_poster_second"
+            android:layout_below="@id/content_overview"
+            android:layout_marginStart="@dimen/info_labels_padding_start"
+            android:paddingTop="20dp"
+            android:text="@string/media_crew"
+            android:textColor="#FFFFFF"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/crew_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/content_label_crew"
+            android:layout_marginTop="16dp"
+            android:background="#000000" />
+
+        <TextView
+            android:id="@+id/content_label_cast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_poster_second"
+            android:layout_below="@id/crew_view"
+            android:layout_marginStart="@dimen/info_labels_padding_start"
+            android:paddingTop="20dp"
+            android:text="@string/media_cast"
+            android:textColor="#FFFFFF"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/cast_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/content_label_cast"
+            android:layout_marginTop="16dp"
+            android:background="#000000" />
+
+        <TextView
+            android:id="@+id/content_label_about_film"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_poster_second"
+            android:layout_below="@id/cast_view"
+            android:layout_marginStart="@dimen/info_labels_padding_start"
+            android:paddingTop="20dp"
+            android:text="@string/media_facts"
+            android:textColor="#FFFFFF"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/content_label_genres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_label_about_film"
+            android:paddingTop="20dp"
+            android:text="@string/media_genres"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/content_genres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_label_genres"
+            android:paddingTop="2dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/content_label_original_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_genres"
+            android:paddingTop="10dp"
+            android:text="@string/media_original_title"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/content_original_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_label_original_title"
+            android:paddingTop="2dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/content_label_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_original_title"
+            android:paddingTop="10dp"
+            android:text="@string/media_status"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/content_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_label_status"
+            android:paddingTop="2dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/content_label_original_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_status"
+            android:paddingTop="10dp"
+            android:text="@string/media_original_language"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/content_original_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_label_original_language"
+            android:paddingTop="2dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/content_label_runtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_original_language"
+            android:paddingTop="10dp"
+            android:text="@string/media_runtime"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/content_runtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_label_runtime"
+            android:paddingTop="2dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/content_label_budget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_runtime"
+            android:paddingTop="10dp"
+            android:text="@string/media_budget"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/content_budget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_label_budget"
+            android:paddingTop="2dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/content_label_revenue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_budget"
+            android:paddingTop="10dp"
+            android:text="@string/media_revenue"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/content_revenue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_label_revenue"
+            android:paddingTop="2dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/content_label_homepage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_revenue"
+            android:paddingTop="10dp"
+            android:text="@string/media_homepage"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/content_homepage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/content_label_about_film"
+            android:layout_below="@id/content_label_homepage"
+            android:autoLink="web"
+            android:paddingTop="2dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+
+    </RelativeLayout>
+</ScrollView>
