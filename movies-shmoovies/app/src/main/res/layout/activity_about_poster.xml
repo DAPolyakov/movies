@@ -16,7 +16,8 @@
             android:id="@+id/background_top"
             android:layout_width="match_parent"
             android:layout_height="350dp"
-            android:background="#150909" />
+            android:background="#150909"
+            android:contentDescription="@string/background_top" />
 
         <TextView
             android:id="@+id/content_title"
@@ -38,6 +39,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="15dp"
+            android:contentDescription="@string/poster_main"
             app:srcCompat="@color/colorAccent" />
 
         <ImageView
@@ -48,6 +50,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="20dp"
+            android:contentDescription="@string/poster_second"
             android:scaleType="fitCenter"
             app:srcCompat="@color/colorAccent" />
 
@@ -83,7 +86,6 @@
             android:layout_marginEnd="50dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
-            android:textAlignment="center"
             android:textColor="#ededed"
             android:textSize="16sp" />
 

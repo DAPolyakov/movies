@@ -22,5 +22,8 @@
     <string name="media_budget">Budget</string>
     <string name="media_revenue">Revenue</string>
     <string name="media_homepage">Homepage</string>
+    <string name="background_top">background_top</string>
+    <string name="poster_main">poster_main</string>
+    <string name="poster_second">poster_second</string>
 
 </resources>
