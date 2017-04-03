@@ -10,6 +10,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/main_part_poster_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#15485c"
@@ -103,11 +104,14 @@
             android:id="@+id/poster_top_position"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="110dp"
-            android:layout_marginStart="310dp"
+            android:layout_alignEnd="@id/main_part_poster_item"
+            android:layout_alignBottom="@id/main_part_poster_item"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="10dp"
             android:scaleType="fitCenter"
             android:src="@drawable/top_2"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:contentDescription="@string/top_position" />
 
     </RelativeLayout>
 
