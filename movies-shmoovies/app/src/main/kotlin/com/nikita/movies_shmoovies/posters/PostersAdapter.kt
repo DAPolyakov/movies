@@ -13,6 +13,7 @@ import com.nikita.movies_shmoovies.common.utils.load
 class PostersAdapter : RecyclerView.Adapter<PostersAdapter.PosterHolder>() {
     var data = ArrayList<PostersPM.Poster>()
     var itemClickAction: ((PostersPM.Poster) -> Unit)? = null
+    var topImages = ArrayList<Int>()
 
     override fun onBindViewHolder(holder: PosterHolder, position: Int) {
         val item = data[position]
@@ -28,6 +29,11 @@ class PostersAdapter : RecyclerView.Adapter<PostersAdapter.PosterHolder>() {
         holder.date.text = item.date
         holder.describe.text = miniDescribe
         holder.rating.text = item.rating
+
+        if (PostersFragment.filter == PostersFragment.Filter.Top10) {
+            holder.topPlace.visibility = View.VISIBLE
+            holder.topPlace.setImageResource(topImages[position])
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterHolder {
@@ -35,6 +41,17 @@ class PostersAdapter : RecyclerView.Adapter<PostersAdapter.PosterHolder>() {
         val holder = PosterHolder(view)
         view.setOnClickListener { itemClickAction?.invoke(data[holder.adapterPosition]) }
        // itemClickAction!!.invoke()
+
+        topImages.add(R.drawable.top_1)
+        topImages.add(R.drawable.top_2)
+        topImages.add(R.drawable.top_3)
+        topImages.add(R.drawable.top_4)
+        topImages.add(R.drawable.top_5)
+        topImages.add(R.drawable.top_6)
+        topImages.add(R.drawable.top_7)
+        topImages.add(R.drawable.top_8)
+        topImages.add(R.drawable.top_9)
+        topImages.add(R.drawable.top_10)
         return holder
     }
 
@@ -46,6 +63,7 @@ class PostersAdapter : RecyclerView.Adapter<PostersAdapter.PosterHolder>() {
         val describe = itemView.findView<TextView>(R.id.poster_describe)
         val date = itemView.findView<TextView>(R.id.poster_date)
         val rating = itemView.findView<TextView>(R.id.poster_rating)
+        val topPlace = itemView.findView<ImageView>(R.id.poster_top_position)
     }
 
 
