@@ -11,5 +11,5 @@ class AppModule(val currentActivityProvider: CurrentActivityProvider, private va
 
   val postersInteractor: PostersInteractor by lazy { BasePostersInteractor(networkModule.moviesService,
                                                                             networkModule.tvShowsService) }
-  val infoInteractor: InfoInteractor by lazy {BaseInfoInteractor(networkModule.moviesService)}
+    val infoInteractor: InfoInteractor by lazy { BaseInfoInteractor(networkModule.moviesService, networkModule.tvShowsService) }
 }

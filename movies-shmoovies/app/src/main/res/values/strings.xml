@@ -26,4 +26,8 @@
     <string name="poster_main">poster_main</string>
     <string name="poster_second">poster_second</string>
 
+    <string name="seasons">Seasons</string>
+    <string name="episodes">Episodes</string>
+    <string name="episode_run_time">Episode Run Time</string>
+
 </resources>

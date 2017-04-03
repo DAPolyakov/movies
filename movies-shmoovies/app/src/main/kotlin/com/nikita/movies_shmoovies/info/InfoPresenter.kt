@@ -24,3 +24,8 @@ class MovieInfoBehavior(private val infoInteractor: InfoInteractor,
                            private val router: AppRouter): InfoPresenter.Behavior() {
     override fun loadContent(): Info = infoInteractor.getDetailMovies()
 }
+
+class TvShowInfoBehavior(private val infoInteractor: InfoInteractor,
+                         private val router: AppRouter) : InfoPresenter.Behavior() {
+    override fun loadContent(): Info = infoInteractor.getDetailTvShows()
+}

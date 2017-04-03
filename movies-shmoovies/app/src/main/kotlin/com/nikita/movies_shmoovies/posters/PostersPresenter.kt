@@ -42,6 +42,7 @@ class MoviePostersBehavior(private val postersInteractor: PostersInteractor,
   override fun onPosterClick(id: String) {
     val intent = Intent(view.context, InfoPosterActivity::class.java)
     intent.putExtra("id", id)
+      intent.putExtra("type", "Movies")
     PostersPresenter.view.context.startActivity(intent)
   }
 }
@@ -51,7 +52,10 @@ class TvPostersBehavior(private val postersInteractor: PostersInteractor,
   override fun loadContent(): PostersPM = postersInteractor.getTvShows()
 
   override fun onPosterClick(id: String) {
-    throw UnsupportedOperationException("not implemented")
+      val intent = Intent(view.context, InfoPosterActivity::class.java)
+      intent.putExtra("id", id)
+      intent.putExtra("type", "TvShows")
+      PostersPresenter.view.context.startActivity(intent)
   }
 }
 

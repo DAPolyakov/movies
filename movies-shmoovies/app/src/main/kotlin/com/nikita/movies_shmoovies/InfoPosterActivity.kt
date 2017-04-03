@@ -13,6 +13,9 @@ import com.nikita.movies_shmoovies.common.mvp.ErrorDesc
 import com.nikita.movies_shmoovies.common.utils.findView
 import com.nikita.movies_shmoovies.common.utils.load
 import com.nikita.movies_shmoovies.info.*
+import com.nikita.movies_shmoovies.posters.PostersFragment
+import com.nikita.movies_shmoovies.posters.PostersInteractor
+import com.nikita.movies_shmoovies.posters.PostersPresenter
 
 class InfoPosterActivity :  MvpAppCompatActivity(), InfoView {
 
@@ -68,11 +71,23 @@ class InfoPosterActivity :  MvpAppCompatActivity(), InfoView {
         setText(revenue, content.revenue, "$")
         setText(homepage, content.homepage)
 
+        if (PostersFragment.type == PostersFragment.Type.TvShows) {
+            val numberOfSeasons = runtime
+            val numberOfEpisodes = budget
+            val episodeRunTime = revenue
+            findView<TextView>(R.id.content_label_runtime).text = getString(R.string.seasons)
+            findView<TextView>(R.id.content_label_budget).text = getString(R.string.episodes)
+            findView<TextView>(R.id.content_label_revenue).text = getString(R.string.episode_run_time)
+
+            setText(numberOfSeasons, content.number_of_seasons)
+            setText(numberOfEpisodes, content.number_of_episodes)
+            setText(episodeRunTime, content.episode_run_time)
+        }
     }
 
     private fun setText(view : TextView, text : String?, additionalSymbols : String = ""){
         var x = text
-        if (x == null || x == "0"){
+        if (x == null || x == "0" || x == "") {
             x = "-"
         } else {
             x += additionalSymbols
@@ -107,12 +122,12 @@ class InfoPosterActivity :  MvpAppCompatActivity(), InfoView {
 
     @ProvidePresenter
     fun providePresenter(): InfoPresenter{
-//        val type = Type.valueOf(intent.getStringExtra(EXTRA_TYPE))
-        val type = Type.Movies
+        val type = Type.valueOf(intent.getStringExtra("type"))
+//        val type = Type.Movies
         val appModule = appModule
         val behavior = when (type){
             InfoPosterActivity.Type.Movies -> MovieInfoBehavior(appModule.infoInteractor, appModule.appRouter)
-            InfoPosterActivity.Type.TvShows -> TODO()
+            InfoPosterActivity.Type.TvShows -> TvShowInfoBehavior(appModule.infoInteractor, appModule.appRouter)
             InfoPosterActivity.Type.People -> TODO()
         }
         return InfoPresenter(behavior)

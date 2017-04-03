@@ -1,6 +1,7 @@
 package com.nikita.movies_shmoovies.info
 
 import com.nikita.movies_shmoovies.common.network.MoviesService
+import com.nikita.movies_shmoovies.common.network.TvShowsService
 import com.nikita.movies_shmoovies.info.BaseInfoInteractor.Companion.contentId
 
 interface InfoInteractor {
@@ -29,7 +30,10 @@ data class Info(val id: String,
                 val runtime : String?,
                 val budget : String?,
                 val revenue : String?,
-                val homepage : String?)
+                val homepage: String?,
+                val episode_run_time: String?,
+                val number_of_episodes: String?,
+                val number_of_seasons: String?)
 
 data class Cast(val id: String,
                 val profile_path: String?,
@@ -50,7 +54,7 @@ data class Actor(val id: String,
 
 data class ListActors(val cast: List<Cast>, val crew: List<Crew>)
 
-class BaseInfoInteractor(val moviesService: MoviesService) : InfoInteractor {
+class BaseInfoInteractor(val moviesService: MoviesService, val tvShowsService: TvShowsService) : InfoInteractor {
 
     companion object {
         var contentId = ""
@@ -74,7 +78,7 @@ class BaseInfoInteractor(val moviesService: MoviesService) : InfoInteractor {
             return "-"
         }
         var minutes = time.toInt()
-        var hours = minutes / 60
+        val hours = minutes / 60
         minutes %= 60
         var strMinutes = minutes.toString()
         if (strMinutes.length == 1){
@@ -105,27 +109,70 @@ class BaseInfoInteractor(val moviesService: MoviesService) : InfoInteractor {
         )}
 
         val info = Info(details.id,
-                details.title,
-                details.overview,
-                details.poster_path,
-                details.backdrop_path,
-                details.release_date,
-                details.genres,
-                cast,
-                crew,
-                details.original_title,
-                details.status,
-                details.original_language,
-                splitRuntime(details.runtime),
-                details.budget,
-                details.revenue,
-                details.homepage
+                title = details.title,
+                describe = details.overview,
+                mainImage = details.poster_path,
+                secondImage = details.backdrop_path,
+                date = details.release_date,
+                genre = details.genres,
+                cast = cast,
+                crew = crew,
+                originalTitle = details.original_title,
+                status = details.status,
+                originalLanguage = details.original_language,
+                runtime = splitRuntime(details.runtime),
+                budget = details.budget,
+                revenue = details.revenue,
+                homepage = details.homepage,
+                episode_run_time = null,
+                number_of_episodes = null,
+                number_of_seasons = null
         )
         return info
     }
 
     override fun getDetailTvShows(): Info {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val details = tvShowsService.getDetails(contentId)
+        val credits = tvShowsService.getCredits(contentId)
+
+        val cast = credits.cast.map {
+            Actor(
+                    it.id,
+                    it.profile_path,
+                    splitName(it.name),
+                    it.character
+            )
+        }
+        val crew = credits.crew.map {
+            Actor(
+                    it.id,
+                    it.profile_path,
+                    splitName(it.name),
+                    it.department + " / " + it.job
+            )
+        }
+
+        val info = Info(details.id,
+                title = details.name,
+                describe = details.overview,
+                mainImage = details.poster_path,
+                secondImage = details.backdrop_path,
+                date = details.first_air_date,
+                genre = details.genres,
+                cast = cast,
+                crew = crew,
+                originalTitle = details.original_name,
+                status = details.status,
+                originalLanguage = details.original_language,
+                runtime = null,
+                budget = null,
+                revenue = null,
+                homepage = details.homepage,
+                episode_run_time = details.episode_run_time?.get(0),
+                number_of_episodes = details.number_of_episodes,
+                number_of_seasons = details.number_of_seasons
+        )
+        return info
     }
 
     override fun getDetailPeople(): Info {
